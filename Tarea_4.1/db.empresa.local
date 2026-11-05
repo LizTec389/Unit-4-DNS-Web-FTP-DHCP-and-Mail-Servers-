@@ -1,0 +1,26 @@
+$TTL    604800
+@       IN      SOA     ns1.empresa.local. admin.empresa.local. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+; Servidor de Nombres (NS)
+@       IN      NS      ns1.empresa.local.
+
+; Registros tipo A (IPv4)
+ns1     IN      A       192.168.100.10
+servidor IN     A       192.168.100.10
+mail    IN      A       192.168.100.15
+
+
+; Registros tipo CNAME (Alias)
+www     IN      CNAME   servidor.empresa.local.
+ftp     IN      CNAME   servidor.empresa.local.
+
+; Registro tipo MX (Servidor de Correo)
+@       IN      MX  10  mail.empresa.local.
+; Registro SPF (anti-spam basico)
+@       IN      TXT     "v=spf1 a mx ip4:192.168.100.10 ~all"
+

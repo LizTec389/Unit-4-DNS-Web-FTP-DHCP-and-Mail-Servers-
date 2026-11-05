@@ -1,0 +1,15 @@
+options {
+        directory "/var/cache/bind";
+
+        // Reenviadores hacia DNS públicos (Google y Cloudflare)
+        forwarders {
+                8.8.8.8;
+                1.1.1.1;
+        };
+
+        dnssec-validation auto;
+
+        listen-on-v6 { any; };
+        listen-on { any; };
+        allow-query { any; };
+};
